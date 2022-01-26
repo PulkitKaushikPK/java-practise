@@ -16,7 +16,7 @@ public class CartService {
 	 private RestTemplate restTemplate;
 	 
 	 public ResponseEntity<Object> saveCart(Cart cart) {
-		 
+		 System.out.println("request to post: "+cart);
 		 Cart newcart=cartRepository.save(cart);
 	     return new ResponseEntity<>(newcart,HttpStatus.OK);
 	    }

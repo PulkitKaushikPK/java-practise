@@ -31,5 +31,14 @@ public class CartController {
 	public ResponseEntity<Object> getCartDetailsByUserId(@PathVariable("id") Long userId){
 		return cartService.getProductDetailsByCart(userId);
 	}
+	
+	@PostMapping("/save")
+	public ResponseEntity<Object> saveTocart1(@RequestBody Cart cart){
+		return cartService.saveCart(cart);
+	}
+	
+	
+	
+	
 
 }
