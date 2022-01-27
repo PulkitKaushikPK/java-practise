@@ -23,8 +23,18 @@ public class GlobalException {
 		eObject.setStatus(HttpStatus.NO_CONTENT.value());
 		eObject.setMessage(ex.getMessage());
 		eObject.setTimestamp(System.currentTimeMillis());
+		return new ResponseEntity<ErrorObject>(eObject, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(InvalidRequestBodyException.class)
+	public ResponseEntity<ErrorObject> handleInvalidException (InvalidRequestBodyException ex) {
+		ErrorObject eObject = new ErrorObject();
+		eObject.setStatus(HttpStatus.NO_CONTENT.value());
+		eObject.setMessage(ex.getMessage());
+		eObject.setTimestamp(System.currentTimeMillis());
 		return new ResponseEntity<ErrorObject>(eObject, HttpStatus.OK);
 	}
+	
 	
 
 }
